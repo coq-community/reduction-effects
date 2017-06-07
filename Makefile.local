@@ -1,0 +1,8 @@
+TESTVFILES = tests/PrintEffect.v
+TESTVOFILES = $(TESTVFILES:.v=.vo)
+
+post-all:: $(TESTVOFILES)
+
+$(TESTVOFILES): %.vo: %.v
+	$(SHOW)COQC $<
+	$(HIDE)$(COQC) $(COQDEBUG) $(COQFLAGS) $<
