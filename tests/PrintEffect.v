@@ -1,6 +1,6 @@
 (* Testing the printing side effect *)
 
-Require Import PrintingEffect.
+From ReductionEffect Require Import PrintingEffect.
 Eval cbv in (fun f x => f (f (f x))) (fun x => S (print_id x)) 0.
 Eval cbn in (fun f x => f (f (f x))) print_id 0. (* Not so interesting *)
 Eval hnf in (fun f x => f (f (f x))) print_id 0. (* Not so interesting *)
