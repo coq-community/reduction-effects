@@ -8,7 +8,7 @@ license: "LGPL-2.1"
 homepage: "https://github.com/herbelin/reduction-effects"
 bug-reports: "https://github.com/herbelin/reduction-effects/issues"
 depends: [
-  "coq"
+  "coq" { >= "8.7" < "8.9~" }
 ]
 build:   [make "-j%{jobs}%"]
 install: [make "-j%{jobs}%" "install"]
