@@ -16,4 +16,4 @@ test:
 	$(MAKE) -C tests
 
 Makefile.coq: _CoqProject
-	coq_makefile -f $< -o $@
+	$(COQBIN)coq_makefile -f $< -o $@
