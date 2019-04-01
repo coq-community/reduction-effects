@@ -1,17 +1,37 @@
 language: c
 sudo: required
-script: curl -L https://raw.githubusercontent.com/ocaml/ocaml-ci-scripts/master/.travis-opam.sh | sh
+before_install:
+- curl -L https://raw.githubusercontent.com/ocaml/ocaml-ci-scripts/master/.travis-ocaml.sh | sh
+install:
+- eval `opam config env`
+- opam update
+- opam unpin . || true
+- opam pin coq $COQ
+- opam upgrade
+script:
+- set -e
+- opam install .
+- opam remove  .
 os:
 - linux
 - osx
 env:
   global:
   - OCAML_VERSION=4.07
+  - NJOBS=2
+  - OPAMVERBOSE=1
+  - OPAMWITHTEST=true
+  - OPAMYES=true
+  matrix:
+  - COQ=8.7.2
+  - COQ=8.8.2
 matrix:
   fast_finish: true
   allow_failures:
   - os: osx
-before_cache: if [ $TRAVIS_OS_NAME = osx ]; then brew cleanup; fi
+before_cache:
+- if [ $TRAVIS_OS_NAME = osx ]; then brew cleanup; fi
+- opam clean
 cache:
   apt: true
   directories:

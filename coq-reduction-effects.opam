@@ -13,7 +13,7 @@ depends: [
 build:   [make "-j%{jobs}%"]
 install: [make "-j%{jobs}%" "install"]
 run-test:[make "-j%{jobs}%" "test"]
-remove:  ["rm" "-rf" "%{lib}%/coq/user-contrib/ReductionEffect"]
+remove:  [make "-j%{jobs}%" "uninstall"]
 dev-repo: "git+https://github.com/herbelin/reduction-effects"
 url {
   src: "git+https://github.com/herbelin/reduction-effects.git"
