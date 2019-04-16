@@ -18,3 +18,7 @@ dev-repo: "git+https://github.com/herbelin/reduction-effects"
 url {
   src: "git+https://github.com/herbelin/reduction-effects.git"
 }
+flags: light-uninstall
+tags: [
+  "logpath:ReductionEffect"
+]
