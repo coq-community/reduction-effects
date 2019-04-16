@@ -5,8 +5,8 @@ synopsis: "A Coq plugin to add reduction side effects to some Coq reduction stra
 maintainer: "Yishuai Li <yishuai@cis.upenn.edu>"
 authors: "Hugo Herbelin <Hugo.Herbelin@inria.fr>"
 license: "LGPL-2.1"
-homepage: "https://github.com/herbelin/reduction-effects"
-bug-reports: "https://github.com/herbelin/reduction-effects/issues"
+homepage: "https://github.com/coq-community/reduction-effects"
+bug-reports: "https://github.com/coq-community/reduction-effects/issues"
 depends: [
   "coq" { >= "8.7" < "8.9~" }
 ]
@@ -14,9 +14,9 @@ build:   [make "-j%{jobs}%"]
 install: [make "-j%{jobs}%" "install"]
 run-test:[make "-j%{jobs}%" "test"]
 remove:  [make "-j%{jobs}%" "uninstall"]
-dev-repo: "git+https://github.com/herbelin/reduction-effects"
+dev-repo: "git+https://github.com/coq-community/reduction-effects"
 url {
-  src: "git+https://github.com/herbelin/reduction-effects.git"
+  src: "git+https://github.com/coq-community/reduction-effects.git"
 }
 flags: light-uninstall
 tags: [
