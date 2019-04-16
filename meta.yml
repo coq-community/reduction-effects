@@ -1,0 +1,32 @@
+---
+fullname: Reduction Effects
+shortname: reduction-effects
+organization: coq-community
+community: true
+
+synopsis: A Coq plugin to add reduction side effects to some Coq reduction strategies
+
+authors:
+- name: Hugo Herbelin
+  initial: true
+
+maintainers:
+- name: Yishuai Li
+  nickname: liyishuai
+- name: Jason Gross
+  nickname: JasonGross
+
+opam-file-maintainer: "Yishuai Li <yishuai@cis.upenn.edu>"
+
+license:
+  fullname: GNU Lesser General Public License v2.1
+  identifier: LGPL-2.1
+
+plugin: true
+
+supported_coq_versions:
+  text: Coq versions 8.7 to 8.8
+  opam: '{ >= "8.7" < "8.9~" }'
+
+
+namespace: ReductionEffect
