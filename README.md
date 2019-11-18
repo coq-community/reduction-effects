@@ -1,12 +1,12 @@
 # Reduction Effects
 
-[![Travis][travis-shield]][travis-link]
+[![CircleCI][circleci-shield]][circleci-link]
 [![Contributing][contributing-shield]][contributing-link]
 [![Code of Conduct][conduct-shield]][conduct-link]
 [![Gitter][gitter-shield]][gitter-link]
 
-[travis-shield]: https://travis-ci.com/coq-community/reduction-effects.svg?branch=master
-[travis-link]: https://travis-ci.com/coq-community/reduction-effects/builds
+[circleci-shield]: https://circleci.com/gh/coq-community/reduction-effects.svg?style=svg
+[circleci-link]:   https://circleci.com/gh/coq-community/reduction-effects
 
 [contributing-shield]: https://img.shields.io/badge/contributions-welcome-%23f7931e.svg
 [contributing-link]: https://github.com/coq-community/manifesto/blob/master/CONTRIBUTING.md
@@ -29,7 +29,7 @@
   - Yishuai Li ([**@liyishuai**](https://github.com/liyishuai))
   - Jason Gross ([**@JasonGross**](https://github.com/JasonGross))
 - License: [GNU Lesser General Public License v2.1](LICENSE)
-- Compatible Coq versions: Coq versions 8.7 to 8.8
+- Compatible Coq versions: Coq 8.9
 - Compatible OCaml versions: all versions supported by Coq
 - Additional Coq dependencies: none
 

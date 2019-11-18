@@ -8,6 +8,7 @@
 
 (*i camlp4deps: "grammar/grammar.cma" i*)
 
+open Constr
 open Stdarg
 open Term
 open Reductionops
@@ -33,7 +34,7 @@ let check_ID_type typ =
     both is a constant and has (at least) two arguments *)
 let check_valid_print_ref x =
   (* First check if it has the type of an identity function *)
-  let (typ_x,_) = Universes.type_of_global x in check_ID_type (EConstr.of_constr typ_x);
+  let (typ_x,_) = UnivGen.type_of_global x in check_ID_type (EConstr.of_constr typ_x);
   (* Then check if it is a constant*)
   if not(Globnames.isConstRef x) then
     CErrors.user_err (Pp.strbrk "Printing function should be a constant.")
@@ -50,6 +51,8 @@ let _ = declare_reduction_effect printing_name printing_hook
 let declare_effect print_ref =
   let print_ref = Smartlocate.global_with_alias print_ref in
   check_valid_print_ref print_ref;
+  match print_ref with
+  | ConstRef print_ref ->
   set_reduction_effect print_ref printing_name
 
 VERNAC COMMAND EXTEND PrintingEffect CLASSIFIED AS SIDEFF

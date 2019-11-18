@@ -25,7 +25,7 @@ license:
 plugin: true
 
 supported_coq_versions:
-  text: Coq versions 8.7 to 8.8
+  text: Coq 8.9
   opam: '{ >= "8.7" < "8.9~" }'
 
 
