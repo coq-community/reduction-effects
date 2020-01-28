@@ -1,9 +1,12 @@
-Makefile.coq*
+Makefile.coq
+Makefile.coq.conf
+tests/*.out
 .*.aux
 *.a
 *.cma
 *.cmi
 *.cmo
+*.cmt
 *.cmx
 *.cmxa
 *.cmxs

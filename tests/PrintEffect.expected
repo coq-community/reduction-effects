@@ -1,0 +1,37 @@
+0
+1
+2
+     = 3
+     : nat
+(print_id (print_id 0))
+(print_id 0)
+0
+(print_id 0)
+0
+0
+     = print_id (print_id (print_id 0))
+     : nat
+(print_id (print_id 0))
+(print_id (print_id 0))
+(print_id 0)
+(print_id 0)
+0
+0
+     = 0
+     : nat
+(1 +
+ (fun x : nat => print_id (1 + x) + 1)
+   ((fun x : nat => print_id (1 + x) + 1) 0))
+(1 +
+ (fun x : nat => print_id (1 + x) + 1)
+   ((fun x : nat => print_id (1 + x) + 1) 0))
+(1 + (fun x : nat => print_id (1 + x) + 1) 0)
+(1 + (fun x : nat => print_id (1 + x) + 1) 0)
+(1 + 0)
+(1 + 0)
+     = 6
+     : nat
+3
+4
+     = tt
+     : unit

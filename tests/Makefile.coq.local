@@ -1,0 +1,3 @@
+$(VFILES:.v=.out): %.out: %.v
+	$(SHOW)'COQC $< > $@'
+	$(HIDE)$(TIMER) $(COQC) $(COQDEBUG) $(COQFLAGS) $(COQLIBS) $< > $@
