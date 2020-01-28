@@ -6,6 +6,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Added
+- Support Coq 8.10, 8.11
+
+### Removed
+- No longer support Coq <= 8.9
+
 ## [0.1.1] - 2019-11-18
 ### Added
 - Support Coq 8.9

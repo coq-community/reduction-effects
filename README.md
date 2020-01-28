@@ -29,7 +29,7 @@
   - Yishuai Li ([**@liyishuai**](https://github.com/liyishuai))
   - Jason Gross ([**@JasonGross**](https://github.com/JasonGross))
 - License: [GNU Lesser General Public License v2.1](LICENSE)
-- Compatible Coq versions: Coq 8.9
+- Compatible Coq versions: Coq 8.10
 - Compatible OCaml versions: all versions supported by Coq
 - Additional Coq dependencies: none
 
@@ -54,6 +54,3 @@ make install
 
 After installation, the included modules are available under
 the `ReductionEffect` namespace.
-
-
-

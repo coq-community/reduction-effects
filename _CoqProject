@@ -1,5 +1,5 @@
 -R . ReductionEffect
 -I .
-redeffect.ml4
+redeffect.mlg
 redeffect_plugin.mlpack
 PrintingEffect.v

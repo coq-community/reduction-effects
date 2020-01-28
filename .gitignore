@@ -34,3 +34,7 @@ nlia.cache
 nra.cache
 *.d
 *~
+*.vok
+*.vos
+*.annot
+/redeffect.ml

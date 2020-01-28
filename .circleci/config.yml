@@ -2,7 +2,7 @@ version: 2.1
 
 defaults: &defaults
   docker:
-  - image: coqorg/coq:8.9
+  - image: coqorg/coq:8.10
   environment:
     OPAMVERBOSE: 1
     OPAMWITHTEST: true
