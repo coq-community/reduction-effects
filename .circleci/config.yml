@@ -1,9 +1,12 @@
 version: 2.1
 
 defaults: &defaults
-  docker:
-  - image: coqorg/coq:8.10
+  resource_class: medium
+  steps:
+  - startup
+  - build
   environment:
+    OPAMJOBS: 2
     OPAMVERBOSE: 1
     OPAMWITHTEST: true
     OPAMYES: true
@@ -38,21 +41,23 @@ commands:
         command: opam remove .
 
 jobs:
-  ocaml 4_05:
+  coq 8_10:
     <<: *defaults
-    steps:
-    - startup
-    - build
-  ocaml 4_07:
+    docker:
+    - image: coqorg/coq:8.10
+  coq 8_11:
     <<: *defaults
-    steps:
-    - startup
-    - run: opam switch 4.07.1+flambda
-    - build
+    docker:
+    - image: coqorg/coq:8.11
+  coq dev:
+    <<: *defaults
+    docker:
+    - image: coqorg/coq:dev
 
 workflows:
   version: 2
   build:
     jobs:
-    - ocaml 4_05
-    - ocaml 4_07
+    - coq 8_10
+    - coq 8_11
+    - coq dev
