@@ -18,5 +18,5 @@ test:
 Makefile.coq: _CoqProject
 	$(COQBIN)coq_makefile -f $< -o $@
 
-README.md: meta.yml templates/README-CircleCI.md.mustache
+%: meta.yml templates/%.mustache
 	mustache $^ > $@

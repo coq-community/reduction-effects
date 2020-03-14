@@ -3,6 +3,7 @@ fullname: Reduction Effects
 shortname: reduction-effects
 organization: coq-community
 community: true
+circleci: true
 
 synopsis: A Coq plugin to add reduction side effects to some Coq reduction strategies
 
@@ -25,8 +26,8 @@ license:
 plugin: true
 
 supported_coq_versions:
-  text: Coq 8.9
-  opam: '{ >= "8.7" < "8.9~" }'
+  text: Coq 8.10 or later
+  opam: '{ >= "8.10" }'
 
 
 namespace: ReductionEffect

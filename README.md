@@ -29,9 +29,10 @@
   - Yishuai Li ([**@liyishuai**](https://github.com/liyishuai))
   - Jason Gross ([**@JasonGross**](https://github.com/JasonGross))
 - License: [GNU Lesser General Public License v2.1](LICENSE)
-- Compatible Coq versions: Coq 8.10
-- Compatible OCaml versions: all versions supported by Coq
-- Additional Coq dependencies: none
+- Compatible Coq versions: Coq 8.10 or later
+- Additional dependencies: none
+- Coq namespace: `ReductionEffect`
+- Related publication(s): none
 
 ## Building and installation instructions
 
@@ -46,11 +47,11 @@ opam install coq-reduction-effects
 To instead build and install manually, do:
 
 ``` shell
-git clone https://github.com/coq-community/reduction-effects
+git clone https://github.com/coq-community/reduction-effects.git
 cd reduction-effects
 make   # or make -j <number-of-cores-on-your-machine>
 make install
 ```
 
-After installation, the included modules are available under
-the `ReductionEffect` namespace.
+
+
