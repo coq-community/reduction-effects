@@ -8,7 +8,6 @@
 
 {
 
-open Constr
 open Stdarg
 open Reductionops
 
@@ -21,46 +20,45 @@ DECLARE PLUGIN "redeffect_plugin"
 (** *******************************************************************)
 
 {
-let check_ID_type typ =
-  let env = Global.env () in
-  let sigma = Evd.from_env env in
-  let decls,_ = splay_prod env Evd.empty typ in
+let check_ID_type env sigma typ =
+  let decls,_ = splay_prod env sigma typ in
   match List.rev decls with
-  | (_,t)::(_,u)::_
-     when
-       let t = EConstr.to_constr Evd.empty t in
-       let u = EConstr.to_constr Evd.empty u in
-       is_Type (Reduction.whd_all env t) &&
-       isRelN 1 (Reduction.whd_all env u) -> ()
+  | (x,t)::(_,u)::_
+    when
+      EConstr.isType sigma (whd_all env sigma t) &&
+      let xt = Context.Rel.Declaration.LocalAssum (x,t) in
+      EConstr.isRelN sigma 1 (whd_all (EConstr.push_rel xt env) sigma u) -> ()
   | _ ->
-    CErrors.user_err Pp.(strbrk "Printing function should be of type \"forall A:Type, A -> T\" for some T and it will print its second argument." ++ Printer.pr_econstr_env env sigma typ)
+    CErrors.user_err Pp.(
+        strbrk ("Printing function should be of type \"forall A:Type, A -> T\" "^
+                "for some T and it will print its second argument, instead of type")
+        ++ spc() ++ Printer.pr_econstr_env env sigma typ)
 
 (** Checks whether the candidate printing function
     both is a constant and has (at least) two arguments *)
-let check_valid_print_ref x =
-  let env = Global.env () in
-  (* First check if it has the type of an identity function *)
-  let (typ_x,_) = Typeops.type_of_global_in_context env x in check_ID_type (EConstr.of_constr typ_x);
-  (* Then check if it is a constant*)
-  if not(Globnames.isConstRef x) then
-    CErrors.user_err (Pp.strbrk "Printing function should be a constant.")
+let check_valid_print_ref = function
+  | Names.GlobRef.ConstRef cst ->
+    let env = Global.env () in
+    let sigma = Evd.from_env env in
+    let sigma, c = Evd.fresh_constant_instance env sigma cst in
+    let t = Typeops.type_of_constant_in env c in
+    check_ID_type env sigma (EConstr.of_constr t);
+    cst
+  | _ -> CErrors.user_err (Pp.strbrk "Printing function should be a constant.")
 
 let printing_hook env sigma c =
-  let (f,l) = decompose_app c in
-  if List.length l >= 2 then
-  Feedback.msg_notice (Printer.pr_constr_env env sigma (List.nth l 1))
+  let (f,l) = Constr.decompose_appvect c in
+  if Array.length l >= 2 then
+    Feedback.msg_notice (Printer.pr_constr_env env sigma (l.(1)))
 
 let printing_name = "Printing"
 
 let _ = declare_reduction_effect printing_name printing_hook
 
-let declare_effect print_ref =
-  let print_ref = Smartlocate.global_with_alias print_ref in
-  check_valid_print_ref print_ref;
-  match print_ref with
-  | Names.GlobRef.ConstRef print_ref ->
-  set_reduction_effect print_ref printing_name
-  | _ -> assert false (* should not happen if check_valid_print_ref is correct *)
+let declare_effect ref =
+  let ref = Smartlocate.global_with_alias ref in
+  let cst = check_valid_print_ref ref in
+  set_reduction_effect cst printing_name
 }
 
 VERNAC COMMAND EXTEND PrintingEffect CLASSIFIED AS SIDEFF
