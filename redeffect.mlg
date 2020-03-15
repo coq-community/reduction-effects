@@ -30,8 +30,8 @@ let check_ID_type env sigma typ =
       EConstr.isRelN sigma 1 (whd_all (EConstr.push_rel xt env) sigma u) -> ()
   | _ ->
     CErrors.user_err Pp.(
-        strbrk ("Printing function should be of type \"forall A:Type, A -> T\" "^
-                "for some T and it will print its second argument, instead of type")
+        strbrk ("Function printing its second argument should be of "^
+                "type \"forall A:Type, A -> T\" for some T, instead of type")
         ++ spc() ++ Printer.pr_econstr_env env sigma typ)
 
 (** Checks whether the candidate printing function
