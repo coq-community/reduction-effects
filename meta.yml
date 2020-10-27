@@ -20,8 +20,8 @@ maintainers:
 opam-file-maintainer: "Yishuai Li <yishuai@cis.upenn.edu>"
 
 license:
-  fullname: GNU Lesser General Public License v2.1
-  identifier: LGPL-2.1
+  fullname: Mozilla Public License 2.0
+  identifier: MPL-2.0
 
 plugin: true
 

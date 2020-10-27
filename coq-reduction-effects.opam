@@ -5,7 +5,7 @@ version: "dev"
 homepage: "https://github.com/coq-community/reduction-effects"
 dev-repo: "git+https://github.com/coq-community/reduction-effects.git"
 bug-reports: "https://github.com/coq-community/reduction-effects/issues"
-license: "LGPL-2.1"
+license: "MPL-2.0"
 
 synopsis: "A Coq plugin to add reduction side effects to some Coq reduction strategies"
 description: """

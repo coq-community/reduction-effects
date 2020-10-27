@@ -28,7 +28,7 @@
 - Coq-community maintainer(s):
   - Yishuai Li ([**@liyishuai**](https://github.com/liyishuai))
   - Jason Gross ([**@JasonGross**](https://github.com/JasonGross))
-- License: [GNU Lesser General Public License v2.1](LICENSE)
+- License: [Mozilla Public License 2.0](LICENSE)
 - Compatible Coq versions: Coq 8.10 or later
 - Additional dependencies: none
 - Coq namespace: `ReductionEffect`
