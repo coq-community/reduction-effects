@@ -1,3 +1,6 @@
+# This file was generated from `meta.yml`, please do not edit manually.
+# Follow the instructions on https://github.com/coq-community/templates to regenerate.
+
 version: 2.1
 
 jobs:
@@ -6,7 +9,7 @@ jobs:
       coq:
         type: string
     docker:
-    - image: coqorg/coq:<<parameters.coq>>
+    - image: <<parameters.coq>>
     resource_class: medium
     environment:
       OPAMJOBS: 2
@@ -15,9 +18,6 @@ jobs:
       TERM: xterm
     steps:
     - checkout
-    - run:
-        name: Pull submodules
-        command: git submodule update --init
     - run:
         name: Configure environment
         command: echo . ~/.profile >> $BASH_ENV
@@ -33,6 +33,7 @@ jobs:
     - run:
         name: Build, test, and install package
         command: opam install -t .
+
     - run:
         name: Uninstall package
         command: opam uninstall .
@@ -43,10 +44,19 @@ workflows:
     jobs:
     - build:
         name: "Coq 8.10"
-        coq: "8.10"
+        coq: "coqorg/coq:8.10"
     - build:
         name: "Coq 8.11"
-        coq: "8.11"
+        coq: "coqorg/coq:8.11"
+    - build:
+        name: "Coq 8.12"
+        coq: "coqorg/coq:8.12"
+    - build:
+        name: "Coq 8.13"
+        coq: "coqorg/coq:8.13"
+    - build:
+        name: "Coq 8.14"
+        coq: "coqorg/coq:8.14"
     - build:
         name: "Coq dev"
-        coq: "dev"
+        coq: "coqorg/coq:dev"
