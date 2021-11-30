@@ -13,7 +13,7 @@ open Reductionops
 
 }
 
-DECLARE PLUGIN "redeffect_plugin"
+DECLARE PLUGIN "coq-reduction-effects.plugin"
 
 (** *******************************************************************)
 (** Grammar entry for binding a constant to the printing hook         *)

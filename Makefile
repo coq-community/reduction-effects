@@ -1,3 +1,11 @@
+# setup findlib
+ifeq ($(shell which cygpath 2>/dev/null),)
+OCAMLPATH := $(shell pwd):$(OCAMLPATH)
+else
+OCAMLPATH := $(shell cygpath -m $(shell pwd));$(OCAMLPATH)
+endif
+export OCAMLPATH
+
 all: Makefile.coq
 	$(MAKE) -f $< $@
 
