@@ -1,0 +1,10 @@
+package "plugin" (
+  description = "Coq Reduction Effects"
+  requires = "coq-core.plugins.ltac"
+  archive(byte) = "redeffect_plugin.cma"
+  archive(native) = "redeffect_plugin.cmxa"
+  plugin(byte) = "redeffect_plugin.cma"
+  plugin(native) = "redeffect_plugin.cmxs"
+  directory = "."
+)
+directory = "."

@@ -1,3 +1,4 @@
+META.coq-reduction-effects
 -R . ReductionEffect
 -I .
 redeffect.mlg

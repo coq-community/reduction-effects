@@ -3,7 +3,7 @@
 (* activate them                                                      *)
 (**********************************************************************)
 
-Declare ML Module "redeffect_plugin".
+Declare ML Module "coq-reduction-effects.plugin".
 
 (** [print] is a function intended for printing terms *)
 
