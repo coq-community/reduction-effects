@@ -1,6 +1,0 @@
-META.coq-reduction-effects
--R . ReductionEffect
--I .
-redeffect.mlg
-redeffect_plugin.mlpack
-PrintingEffect.v

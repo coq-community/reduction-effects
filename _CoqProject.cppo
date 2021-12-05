@@ -1,0 +1,8 @@
+#if COQ_VERSION >= (8, 15, 0)
+-generate-meta-for-package coq-reduction-effects
+#endif
+-R . ReductionEffect
+-I .
+redeffect.mlg
+redeffect_plugin.mlpack
+PrintingEffect.v
