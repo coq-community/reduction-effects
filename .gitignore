@@ -1,3 +1,5 @@
+_CoqProject
+PrintingEffect.v
 Makefile.coq
 Makefile.coq.conf
 tests/*.out
@@ -38,3 +40,4 @@ nra.cache
 *.vos
 *.annot
 /redeffect.ml
+META.coq-reduction-effects

@@ -3,7 +3,11 @@
 (* activate them                                                      *)
 (**********************************************************************)
 
+#if COQ_VERSION >= (8, 15, 0)
 Declare ML Module "coq-reduction-effects.plugin".
+#else
+Declare ML Module "redeffect_plugin".
+#endif
 
 (** [print] is a function intended for printing terms *)
 

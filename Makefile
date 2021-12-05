@@ -1,12 +1,8 @@
-# setup findlib
-ifeq ($(shell which cygpath 2>/dev/null),)
-OCAMLPATH := $(shell pwd):$(OCAMLPATH)
-else
-OCAMLPATH := $(shell cygpath -m $(shell pwd));$(OCAMLPATH)
-endif
-export OCAMLPATH
+COMPATFILES:= \
+	PrintingEffect.v \
+	_CoqProject
 
-all: Makefile.coq
+all: Makefile.coq $(COMPATFILES)
 	$(MAKE) -f $< $@
 
 install: Makefile.coq
@@ -17,7 +13,7 @@ uninstall: Makefile.coq
 
 clean:
 	if [ -e Makefile.coq ]; then $(MAKE) -f Makefile.coq $@; fi
-	$(RM) Makefile.coq Makefile.coq.conf .*.aux
+	$(RM) Makefile.coq Makefile.coq.conf .*.aux $(COMPATFILES)
 
 test:
 	$(MAKE) -C tests clean
@@ -26,5 +22,5 @@ test:
 Makefile.coq: _CoqProject
 	$(COQBIN)coq_makefile -f $< -o $@
 
-%: meta.yml templates/%.mustache
-	mustache $^ > $@
+%: %.cppo
+	cppo -V COQ:$(word 1, $(shell coqc -print-version)) -n -o $@ $^

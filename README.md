@@ -1,3 +1,7 @@
+<!---
+This file was generated from `meta.yml`, please do not edit manually.
+Follow the instructions on https://github.com/coq-community/templates to regenerate.
+--->
 # Reduction Effects
 
 [![CircleCI][circleci-shield]][circleci-link]
@@ -30,7 +34,8 @@
   - Jason Gross ([**@JasonGross**](https://github.com/JasonGross))
 - License: [Mozilla Public License 2.0](LICENSE)
 - Compatible Coq versions: Coq 8.10 or later
-- Additional dependencies: none
+- Additional dependencies:
+  - [Cppo](https://github.com/ocaml-community/cppo)
 - Coq namespace: `ReductionEffect`
 - Related publication(s): none
 
@@ -49,7 +54,7 @@ To instead build and install manually, do:
 ``` shell
 git clone https://github.com/coq-community/reduction-effects.git
 cd reduction-effects
-make   # or make -j <number-of-cores-on-your-machine>
+make   # or make -j <number-of-cores-on-your-machine> 
 make install
 ```
 

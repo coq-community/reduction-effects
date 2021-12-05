@@ -37,6 +37,11 @@ tested_coq_opam_versions:
 - version: '8.14'
 - version: 'dev'
 
+dependencies:
+  - description: '[Cppo](https://github.com/ocaml-community/cppo)'
+    opam:
+      name: cppo
+      version: '{ >= "1.6.8" }'
 test_target: test
 ci_extra_dev: true
 
