@@ -35,6 +35,7 @@ tested_coq_opam_versions:
 - version: '8.12'
 - version: '8.13'
 - version: '8.14'
+- version: '8.15'
 - version: 'dev'
 
 dependencies:
