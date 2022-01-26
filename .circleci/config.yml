@@ -58,5 +58,8 @@ workflows:
         name: "Coq 8.14"
         coq: "coqorg/coq:8.14"
     - build:
+        name: "Coq 8.15"
+        coq: "coqorg/coq:8.15"
+    - build:
         name: "Coq dev"
         coq: "coqorg/coq:dev"
