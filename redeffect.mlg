@@ -21,7 +21,7 @@ DECLARE PLUGIN "coq-reduction-effects.plugin"
 
 {
 let check_ID_type env sigma typ =
-  let decls,_ = splay_prod env sigma typ in
+  let decls,_ = hnf_decompose_prod env sigma typ in
   match List.rev decls with
   | (x,t)::(_,u)::_
     when
@@ -47,7 +47,7 @@ let check_valid_print_ref = function
   | _ -> CErrors.user_err (Pp.strbrk "Printing function should be a constant.")
 
 let printing_hook env sigma c =
-  let (f,l) = Constr.decompose_appvect c in
+  let (f,l) = Constr.decompose_app c in
   if Array.length l >= 2 then
     Feedback.msg_notice (Printer.pr_constr_env env sigma (l.(1)))
 
