@@ -1,5 +1,6 @@
 _CoqProject
 PrintingEffect.v
+redeffect.mlg
 Makefile.coq
 Makefile.coq.conf
 tests/*.out

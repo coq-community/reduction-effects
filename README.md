@@ -4,13 +4,13 @@ Follow the instructions on https://github.com/coq-community/templates to regener
 --->
 # Reduction Effects
 
-[![CircleCI][circleci-shield]][circleci-link]
+[![Docker CI][docker-action-shield]][docker-action-link]
 [![Contributing][contributing-shield]][contributing-link]
 [![Code of Conduct][conduct-shield]][conduct-link]
 [![Zulip][zulip-shield]][zulip-link]
 
-[circleci-shield]: https://circleci.com/gh/coq-community/reduction-effects.svg?style=svg
-[circleci-link]:   https://circleci.com/gh/coq-community/reduction-effects
+[docker-action-shield]: https://github.com/coq-community/reduction-effects/workflows/Docker%20CI/badge.svg?branch=master
+[docker-action-link]: https://github.com/coq-community/reduction-effects/actions?query=workflow:"Docker%20CI"
 
 [contributing-shield]: https://img.shields.io/badge/contributions-welcome-%23f7931e.svg
 [contributing-link]: https://github.com/coq-community/manifesto/blob/master/CONTRIBUTING.md

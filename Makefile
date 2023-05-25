@@ -1,4 +1,5 @@
 COMPATFILES:= \
+	redeffect.mlg \
 	PrintingEffect.v \
 	_CoqProject
 
