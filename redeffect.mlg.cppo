@@ -21,7 +21,9 @@ DECLARE PLUGIN "coq-reduction-effects.plugin"
 
 {
 let check_ID_type env sigma typ =
-#if COQ_VERSION >= (8, 18, 0)
+#if COQ_VERSION >= (8, 21, 0)
+  let decls,_ = whd_decompose_prod env sigma typ in
+#elif COQ_VERSION >= (8, 18, 0)
   let decls,_ = hnf_decompose_prod env sigma typ in
 #else
   let decls,_ = splay_prod env sigma typ in
@@ -66,7 +68,11 @@ let _ = declare_reduction_effect printing_name printing_hook
 let declare_effect ref =
   let ref = Smartlocate.global_with_alias ref in
   let cst = check_valid_print_ref ref in
+#if COQ_VERSION >= (8, 21, 0)
+  set_reduction_effect Export cst printing_name
+#else
   set_reduction_effect cst printing_name
+#endif
 }
 
 VERNAC COMMAND EXTEND PrintingEffect CLASSIFIED AS SIDEFF
